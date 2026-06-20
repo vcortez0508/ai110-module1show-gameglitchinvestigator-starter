@@ -39,6 +39,7 @@ Document at least 3 bugs you found. Add rows as needed.
   and what it showed you about your code.
 - Did AI help you design or understand any tests? How?
 
+
 ---
 
 ## 4. What did you learn about Streamlit and state?

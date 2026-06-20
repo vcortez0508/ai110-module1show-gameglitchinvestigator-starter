@@ -1,13 +1,14 @@
 import random
 import streamlit as st
 
+#FIX: Difficulty range was swapped
 def get_range_for_difficulty(difficulty: str):
     if difficulty == "Easy":
         return 1, 20
     if difficulty == "Normal":
-        return 1, 100
-    if difficulty == "Hard":
         return 1, 50
+    if difficulty == "Hard":
+        return 1, 100
     return 1, 100
 
 
@@ -118,22 +119,31 @@ with st.expander("Developer Debug Info"):
     st.write("Difficulty:", difficulty)
     st.write("History:", st.session_state.history)
 
-raw_guess = st.text_input(
-    "Enter your guess:",
-    key=f"guess_input_{difficulty}"
-)
+# FIX: Wrapped input and submit in st.form so pressing Enter fires
+# st.form_submit_button, which sets submit=True and triggers the guess logic.
+# Previously, st.button only responded to clicks, not Enter key presses.
+show_hint = st.checkbox("Show hint", value=True)
 
-col1, col2, col3 = st.columns(3)
-with col1:
-    submit = st.button("Submit Guess 🚀")
-with col2:
+with st.form(key="guess_form", clear_on_submit=True):
+    raw_guess = st.text_input(
+        "Enter your guess:",
+        key=f"guess_input_{difficulty}"
+    )
+    col1, col2 = st.columns(2)
+    with col1:
+        submit = st.form_submit_button("Submit Guess 🚀")
+
+col_new_game, _ = st.columns(2)
+with col_new_game:
     new_game = st.button("New Game 🔁")
-with col3:
-    show_hint = st.checkbox("Show hint", value=True)
 
+# FIX: Reset status, score, history, and attempts so the new game is not blocked by st.stop()
 if new_game:
-    st.session_state.attempts = 0
-    st.session_state.secret = random.randint(1, 100)
+    st.session_state.attempts = 1
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.status = "playing"
+    st.session_state.score = 0
+    st.session_state.history = []
     st.success("New game started.")
     st.rerun()
 
