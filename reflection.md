@@ -5,8 +5,12 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 1. What was broken when you started?
 
 - What did the game look like the first time you ran it?
+  The game was simple, yet it had multiple bugs theat were noticeable from the start.
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
+  1. Difficulty leveles were inaccurate.
+  2. "New Game" button does not start a new game. In fact, it did nothing.
+  3. "Press Enter to guess" Did nothing. You are forced to press "Submit Guess". 
 
 **Bug Reproduction Log**
 
@@ -14,9 +18,9 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+|   9   |    "Too low"      |    "Too High"   |       none visible     | 
+|  none |ascending difficulty|Mixed difficulty|       none visible     |
+| Enter | Submit the guess  |     Nothing     |       none visible     |
 
 ---
 
