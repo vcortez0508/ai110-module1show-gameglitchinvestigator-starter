@@ -33,11 +33,11 @@ It wrote the code, ran away, and now the game is unplayable.
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. Run `python -m streamlit run app.py` and open the app in your browser.
+2. Pick a difficulty in the sidebar (Easy, Normal, or Hard) to set the number range and attempt limit.
+3. Type a guess and click **Submit Guess 🚀**. The app tells you if you're too high, too low, or correct.
+4. Keep guessing until you win or run out of attempts. Your score updates after each guess.
+5. Click **New Game 🔁** to reset everything and play again.
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
